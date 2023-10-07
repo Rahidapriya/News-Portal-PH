@@ -47,7 +47,7 @@ logOut()
         </ul>
     </div>
     
-    <a className="btn btn-ghost normal-case text-xl"> <span className="text-4xl">E</span>VENT LAB</a>
+    <a className="btn btn-ghost normal-case text-2xl text-amber-500"> <span className="text-4xl">E</span>vent Lab</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal  px-1">

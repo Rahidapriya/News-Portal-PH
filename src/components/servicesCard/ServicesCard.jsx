@@ -45,7 +45,7 @@ const ServicesCard = ({card}) => {
     </p>
     <Link to={`/donate/${id}`}>
     <button
-      className="mt-12 select-none rounded-lg font-metamorphous py-3 px-6 text-center align-middle text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none hover:bg-white " style={{ background: backgroundColor }}
+      className="mt-12 select-none rounded-lg font-metamorphous py-3 px-6 text-center align-middle text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none hover:bg-white w-full " style={{ background: backgroundColor }}
       type="button"
       data-ripple-light="true"
     >

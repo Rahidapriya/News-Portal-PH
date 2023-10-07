@@ -1,5 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 
+import { Link } from "react-router-dom";
+
 
 const Header = () => {
   return (
@@ -22,17 +24,17 @@ and more await your vision's embrace.
 Let's craft an extraordinary event,
 capturing moments you'll forever embrace.
             </p>
-            <button className="btn px-8 cursor-pointer hover:bg-purple-950 bg-orange-500 rounded-none text-white font-bold border-none font-metamorphous">Book A Consult</button>
+           <Link to='/contact'> <button className="btn px-8 cursor-pointer z-20 bg-orange-500 hover:bg-purple-950  rounded-none text-white font-bold border-none font-metamorphous">Book A Consult</button></Link>
           </div>
         </div>
        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="absolute bottom-0 left-0 w-full">
+        {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="absolute bottom-0 left-0 w-full">
           <path
             fill="#fff"
             fillOpacity=".20"
             d="M0,96L48,117.3C96,139,192,181,288,176C384,171,480,117,576,117.3C672,117,768,171,864,208C960,245,1056,267,1152,256C1248,245,1344,203,1392,181.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
           ></path>
-        </svg>
+        </svg> */}
       </div>
     </div>
   );

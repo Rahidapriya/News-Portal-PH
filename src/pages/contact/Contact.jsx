@@ -2,6 +2,7 @@
 
 import { Link } from 'react-router-dom';
 import Navbar from '../../shared/navbar/Navbar';
+import Footer from '../../shared/footer/Footer';
 
 const Contact = () => {
     return (
@@ -210,7 +211,7 @@ const Contact = () => {
 
       <div>
         <Link to='/'><button 
-          className="hover:shadow-form rounded-md bg-purple-950 py-3 px-8 text-center text-base font-semibold text-white outline-none w-full hover:bg-amber-500 "
+          className="hover:shadow-form rounded-md hover:bg-purple-950 py-3 px-8 text-center text-base font-semibold text-white outline-none w-full bg-amber-500 "
         >
           Submit
         </button></Link>
@@ -219,6 +220,7 @@ const Contact = () => {
   </div>
 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

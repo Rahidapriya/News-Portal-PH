@@ -18,7 +18,7 @@ const Home = () => {
           {/* services */}
        
         <div className='flex flex-col items-center justify-center mt-20 ' id='services'>
-             <h3 className='text-amber-500'> Have a Look to Our Services</h3>
+             <h3 className='text-amber-500'>Turning Dreams Into Reality</h3>
              <h1 className='text-purple-950 text-4xl font-metamorphous font-bold'>__Our Services__</h1>
             </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 m-20 gap-6">

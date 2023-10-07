@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 
+import Footer from "../../shared/footer/Footer";
 import PriceCard from "./PriceCard";
 
 /* eslint-disable react/prop-types */
@@ -29,6 +30,7 @@ const SingleCard = ({ card }) => {
 
         {/* card */}
         <PriceCard></PriceCard>
+        <Footer></Footer>
         
       </div>
     );

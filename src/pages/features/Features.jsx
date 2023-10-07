@@ -12,6 +12,7 @@ import registry from '../../assets/registrery.jpg'
 import photography from '../../assets/photography.jpg'
 import decoration from '../../assets/decoration.jpg'
 import cake from '../../assets/cake.jpg'
+import Footer from '../../shared/footer/Footer';
 
 const Features = () => {
     return (
@@ -85,6 +86,7 @@ const Features = () => {
   </div>
 </div>
           </div>
+          <Footer></Footer>
         </div>
     );
 };
