@@ -43,7 +43,7 @@ const ServicesCard = ({card}) => {
      <p className=" text-center font-bold text-xl block text-white font-poppins leading-relaxed  antialiased mt-20">
       Are You excited to celebrate your memorable day more memorable with us <span className='block text-6xl text-center'>?</span>
     </p>
-    <Link to='{`/donate/${id}`}'>
+    <Link to={`/donate/${id}`}>
     <button
       className="mt-12 select-none rounded-lg font-metamorphous py-3 px-6 text-center align-middle text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none hover:bg-white " style={{ background: backgroundColor }}
       type="button"

@@ -2,6 +2,7 @@
 import  { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import SingleCard from './singleCard';
+import Navbar from '../../shared/navbar/Navbar';
 
 
 const ServiceDetails = () => {
@@ -17,6 +18,7 @@ const ServiceDetails = () => {
     console.log(card);
     return (
         <div>
+            <Navbar></Navbar>
            <SingleCard card={card}></SingleCard>
         </div>
     );
