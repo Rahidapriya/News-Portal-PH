@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "serviceType": "Wedding Ceremony",
+    "description": "Comprehensive wedding planning service to make your special day perfect.",
+    "priceRange": "$2,500 - $10,000",
+    "location": "123 Event Avenue, Anytown, USA",
+    "details": "Includes venue selection, catering, decorations, and coordination.",
+    "backgroundColor": "#f97316",
+    "imageURL": "https://i.ibb.co/v11SRFd/weadingparty.jpg",
+    "buttonColor": "#3b0764" 
+  },
+  {
+    "id": 2,
+    "serviceType": "Engagement Party ",
+    "description": "Creating unforgettable engagement parties to celebrate love stories.",
+    "priceRange": "$1,000 - $4,000",
+    "location": "101 Engagement Street, Romanceville, USA",
+    "details": "Engagement party themes, decor, and entertainment.",
+    "backgroundColor": "#3b0764",
+    "imageURL": "https://i.ibb.co/2NHZtmp/engage.jpg",
+    "buttonColor": "#f97316" 
+  },
+  {
+    "id": 3,
+    "serviceType": "Birthday Party ",
+    "description": "Professional party planning to create memorable birthday celebrations.",
+    "priceRange": "$500 - $5,000",
+    "location": "456 Party Place, Partyville, USA",
+    "details": "Theme selection, entertainment, and custom decorations.",
+    "backgroundColor": "#f97316",
+    "imageURL": "https://i.ibb.co/MVGHgN7/birthday.webp",
+    "buttonColor": "#3b0764" 
+  },
+  {
+    "id": 4,
+    "serviceType": "Retirement Event ",
+    "description": "Designing memorable retirement events to honor a well-deserved retirement.",
+    "priceRange": "$1,200 - $5,000",
+    "location": "789 Retirement Road, Retireville, USA",
+    "details": "Retirement party ideas, venue selection, and coordination.",
+    "backgroundColor": "#3b0764",
+    "imageURL": "https://i.ibb.co/3BcXHjV/retirement-party.jpg",
+    "buttonColor": "#f97316"  
+  },
+  {
+    "id": 5,
+    "serviceType": "Anniversary Celebration ",
+    "description": "Crafting memorable anniversary events to cherish with your loved ones.",
+    "priceRange": "$800 - $3,000",
+    "location": "789 Love Lane, Lovetown, USA",
+    "details": "Customized anniversary party ideas and coordination.",
+    "backgroundColor": "#f97316",
+    "imageURL": "https://i.ibb.co/X4JxtvH/anneversery.jpg",
+    "buttonColor": "#3b0764" 
+  },
+  {
+    "id": 6,
+    "serviceType": "Baby Shower ",
+    "description": "Creating heartwarming baby showers to welcome the newest family member.",
+    "priceRange": "$600 - $2,500",
+    "location": "123 Baby Blvd, Babyville, USA",
+    "details": "Themed baby showers, games, and decor.",
+    "backgroundColor": "#3b0764",
+    "imageURL": "https://i.ibb.co/nmyN64b/babyshowerparty.jpg",
+    "buttonColor": "#f97316"  
+  }
+]
