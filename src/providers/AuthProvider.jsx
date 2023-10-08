@@ -13,11 +13,85 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading,setLoding]=useState(true)
 
-    const createUser = (name,photo,email, password) => {
+    const createUser = (email, password) => {
         setLoding(true)
-        return createUserWithEmailAndPassword(auth,name,photo, email, password);
+        return createUserWithEmailAndPassword(auth, email, password);
     }
-   
+
+
+// const profileInfo=(name,photo)=>{
+//     setLoding(true)
+//    return updateProfile(auth.currentUser,
+
+//      { 
+//         displayName: name,
+//          photoURL: photo ,
+         
+//         }
+       
+//         )
+      
+// }
+
+const profileInfo = (name, photo) => {
+    setLoding(true);
+    return updateProfile(auth.currentUser, {
+        displayName: name,
+        photoURL: photo,
+    })
+    .then(() => {
+        // Update the user state with the new profile information
+        setUser({
+            ...user,
+            displayName: name,
+            photoURL: photo,
+        });
+        setLoding(false);
+    })
+    .catch((error) => {
+        console.log("Error updating user profile:", error);
+        setLoding(false);
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+    // const createUser = (auth, email, password, name, photo) => {
+    //     setLoding(true);
+    //     return createUserWithEmailAndPassword(auth, email, password)
+    //       .then((user) => {
+    //         // Update user profile with name and photo
+    //         return updateProfile(user, { displayName: name, photoURL: photo })
+    //           .then(() => {
+    //             setUser(user);
+    //             setLoding(false);
+    //             return user;
+    //           })
+    //           .catch((error) => {
+    //             console.error(error);
+    //             // setLoding(false);
+    //             throw error;
+    //           });
+    //       })
+    //       .catch((error) => {
+    //         console.error(error);
+    //         // setLoding(false);
+    //         throw error;
+    //       });
+    //   };
+      
+      
+      console.log('current user',user);
+
 const googleSignIn=(value)=>{
     setLoding(true)
     return signInWithPopup(auth,googleProvider);
@@ -40,7 +114,7 @@ const googleSignIn=(value)=>{
             setUser(currentUser);
             setLoding(false);
 
-console.log('diiiiii',currentUser.displayName);
+
            
 
 
@@ -60,6 +134,7 @@ console.log('diiiiii',currentUser.displayName);
         signIn,
         loading,
         googleSignIn,
+        profileInfo,
     };
 
     return (
