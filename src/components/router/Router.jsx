@@ -18,6 +18,7 @@ import Login from "../../pages/login/Login";
 import Register from "../../pages/register/Register";
 import ErrorPage from "../../pages/errorPage/ErrorPage";
 import ServiceDetails from "../singleServicesDetails/ServiceDetails";
+import PrivateRoute from "./PrivateRoute";
 
   const router = createBrowserRouter([
     {
@@ -36,17 +37,17 @@ import ServiceDetails from "../singleServicesDetails/ServiceDetails";
         },
         {
           path:"/donate/:id",
-          element:<ServiceDetails></ServiceDetails>,
+          element:<PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
            loader:()=>fetch('/public/data.json')
         },
         {
           path:'/features',
-          element:<Features></Features>
+          element:<PrivateRoute><Features></Features></PrivateRoute>
         },
        
         {
           path:'/contact',
-          element:<Contact></Contact>
+          element:<PrivateRoute><Contact></Contact></PrivateRoute>
         },
         
         {

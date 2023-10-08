@@ -11,13 +11,13 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading,setLoding]=useState(true)
 
-    const createUser = (email, password) => {
+    const createUser = (name,photo,email, password) => {
         setLoding(true)
-        return createUserWithEmailAndPassword(auth, email, password);
+        return createUserWithEmailAndPassword(auth,name,photo, email, password);
     }
-    const signIn=(email,password)=>{
+    const signIn=(name,photo,email,password)=>{
         setLoding(true)
-        return signInWithEmailAndPassword(auth,email,password)
+        return signInWithEmailAndPassword(auth,name,photo,email,password)
     }
 
     const logOut = () => {

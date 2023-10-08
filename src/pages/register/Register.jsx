@@ -14,14 +14,14 @@ const Register = () => {
       
       const form =new FormData(e.currentTarget);
       const name=form.get('name')
-      const photo=form.get('photo')
+      const photo=form.get('file')
       const email=form.get('email')
       const password=form.get('password')
-      console.log(password,email,name,photo);
+      console.log('resigtater page info',password,email,name,photo);
      
-     createUser(email,password)
+     createUser(name,photo,email,password)
      .then(result=>{
-      console.log(result.user);
+      console.log('resister user:',result.user);
       e.target.reset();
       navigate('/');
      })

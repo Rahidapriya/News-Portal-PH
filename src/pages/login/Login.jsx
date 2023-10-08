@@ -1,10 +1,37 @@
 
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { BiLogoGmail } from 'react-icons/bi';
 import Navbar from '../../shared/navbar/Navbar';
+import { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
+
+
+  const {signIn}=useContext(AuthContext)
+  const location=useLocation();
+   const navigate=useNavigate()
+    const handleLogin=e=>{
+      e.preventDefault();
+  
+      const form =new FormData(e.currentTarget);
+      const email=form.get('email')
+      const password=form.get('password')
+      console.log(email,password);
+      
+      signIn(email,password)
+      .then(result=>{
+        console.log(result.user);
+       
+        e.target.reset();
+        navigate(location?.state?location.state:'/');
+      })
+      .catch(error=>{
+        console.log(error);
+      })
+    }
+
     return (
       
         <div>
@@ -19,7 +46,7 @@ const Login = () => {
   </p>
      
 
-<form className="mt-8 mb-2 w-full max-w-screen-lg sm:w-96 px-6 py-10 shadow-md rounded-md">
+<form className="mt-8 mb-2 w-full max-w-screen-lg sm:w-96 px-6 py-10 shadow-md rounded-md" onSubmit={handleLogin}>
     <div className="mb-4 flex flex-col gap-6">
      
      

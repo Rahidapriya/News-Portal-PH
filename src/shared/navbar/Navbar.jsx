@@ -4,6 +4,8 @@ import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 // import { GiPartyFlags} from 'react-icons/gi'
 // import { FaGoogle} from 'react-icons/fa'
+import icon from '../../assets/user.png'
+import icon2 from '../../assets/hero.jpg'
 
 
 
@@ -56,14 +58,31 @@ logOut()
   </div>
   <div className="navbar-end">
   
-    <label tabIndex={0} className="btn btn-circle avatar">
+    {/* <label tabIndex={0} className="btn btn-circle avatar">
         <div className="w-10 rounded-full">
-          {/* <img src={logo}/> */}
+        <img src={icon}/>
         </div>
       </label>
       {
         user?<button onClick={handleSignOut} className="btn">Sign Out</button>
         :   <Link to='/login' > <button className="btn text-white bg-amber-500 px-6  border-none ml-5 rounded-sm">Login</button></Link>
+      } */}
+
+<label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+        <div className="w-10 rounded-full">
+         {
+          !user?  <img src={icon}/>:<img src={icon2}></img>
+         }
+        </div>
+       <p>
+          {
+            user?.email
+          }
+        </p>
+      </label>
+      {
+        user?<button onClick={handleSignOut} className="btn ">Sign Out</button>
+        :   <Link to='/login'> <button className="btn text-white bg-amber-500 px-6  border-none ml-5 rounded-sm">Login</button></Link>
       }
    
   
