@@ -4,11 +4,19 @@ import { useContext} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Navbar from "../../shared/navbar/Navbar";
-
+// import { useState } from "react";
+// import { useRef } from "react";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+import swal from 'sweetalert';
 
 const Register = () => {
   const navigate=useNavigate();
+  // const [registerError,setRegisterError]=useState('')
+  // const [success,setsuccess]=useState(false)
   const {createUser,profileInfo}= useContext(AuthContext);
+ 
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -16,27 +24,71 @@ const Register = () => {
     // const form = new FormData(e.currentTarget);
     const name=e.target.name.value;
     const email=e.target.email.value;
+  
     const password=e.target.password.value;
     const photo = e.target.photo.value;
+    const accepted=e.target.checkbox.checked;
+ 
 
+    if(!accepted){
+      toast.error('Please Accept Terms And Condition', {
+        position: toast.POSITION.RIGHT_TOP,
+        autoClose: 6000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "colored", 
+      });
+      return;
+  }
+
+
+  if(!/^(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}$/.test(password)){
+    // alert("please write a valid password")
+    toast.error('Please Write a Valid Password', {
+      position: toast.POSITION.RIGHT_TOP,
+      autoClose: 6000,
+hideProgressBar: false,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "colored", 
+    });
+    return;
+  }
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
-        // After creating the user, update the profile with name and photo
+       
         profileInfo(name, photo)
           .then(() => {
-            console.log(name);
-            console.log("User profile updated successfully");
-            e.target.reset();
-            navigate("/");
             
+            
+              swal("Hurray!", "You Have Registered Successfully", "success");
+            
+           
+            e.target.reset();
+        navigate(location?.state?location.state:'/'); 
           })
           .catch((error) => {
             console.log("Error updating user profile:", error);
           });
       })
       .catch((error) => {
-        console.log("Error creating user:", error);
+        // setRegisterError(error.message)
+       toast.error(error.message, {
+      position: toast.POSITION.RIGHT_TOP,
+      autoClose: 6000,
+hideProgressBar: false,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "colored", 
+    });
       });
   };
     return (
@@ -55,7 +107,7 @@ const Register = () => {
       <div className="relative h-11 w-full min-w-[200px]">
         <input
           className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeHolder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-purple-950 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-          placeHolder=" " type="text" name="name" id="name"
+          placeHolder=" " type="text" name="name" id="name" required
         />
         <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeHolder-shown:text-sm peer-placeHolder-shown:leading-[4.1] peer-placeHolder-shown:text-blue-gray-500 peer-placeHolder-shown:before:border-transparent peer-placeHolder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-purple-950  peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-purple-950  peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-purple-950  peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeHolder-shown:text-blue-gray-500">
           Name
@@ -65,33 +117,27 @@ const Register = () => {
 
       <input
           className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeHolder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-purple-950 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-          placeHolder=" " type="text" name="photo" id="photo"
+          placeHolder=" " type="text" name="photo" id="photo" required
         />
         <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeHolder-shown:text-sm peer-placeHolder-shown:leading-[4.1] peer-placeHolder-shown:text-blue-gray-500 peer-placeHolder-shown:before:border-transparent peer-placeHolder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-purple-950  peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-purple-950  peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-purple-950  peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeHolder-shown:text-blue-gray-500">
-          url
+          Photo URL
         </label>
 
-      {/* <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="file_input">
-        Upload file
-      </label>
-      <input
-        className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-        id="file_input"
-        type="file"
-      /> */}
         {/* <input
           className="peer  h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-purple-950 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50" htmlFor="file_input"
           placeHolder=" " id="file_input"
           type="file" name='photo'
-        /> */}
-        {/* <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-purple-950  peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-purple-950  peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-purple-950  peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+        />
+        <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-purple-950  peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-purple-950  peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-purple-950  peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
          Photo URL
         </label> */}
+
+
       </div>
       <div className="relative h-11 w-full min-w-[200px]">
         <input
           className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-purple-950 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-          placeHolder="" type="email" name="email" id="email"
+          placeHolder="" type="email" name="email" id="email" required
         />
         <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-purple-950  peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-purple-950  peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-purple-950  peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
           Email
@@ -101,7 +147,7 @@ const Register = () => {
         <input
           type="password"
           className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-purple-950 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-          placeHolder=" "  name="password" id="password"
+          placeHolder=" "  name="password" id="password" required
         />
         <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-purple-950  peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-purple-950  peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-purple-950  peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
           Password
@@ -138,7 +184,7 @@ const Register = () => {
       </label>
       <label
         className="mt-px cursor-pointer select-none font-light text-gray-700"
-        htmlFor="checkbox"
+        htmlFor="checkbox" name='checkbox'
       >
         <p className="flex items-center font-sans text-sm font-normal leading-normal text-gray-700 antialiased">
           I agree the
@@ -168,9 +214,16 @@ const Register = () => {
       </Link>
     </p>
   </form>
+  {/* {
+    registerError && <p>{registerError}</p>
+  }
+  {
+    success && <p>{success}</p>
+  } */}
  
 </div>
         </div>
+        <ToastContainer />
         </div>
     );
 };

@@ -5,14 +5,39 @@ import { BiLogoGmail } from 'react-icons/bi';
 import Navbar from '../../shared/navbar/Navbar';
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+// import { useState } from 'react';
+import swal from 'sweetalert';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 const Login = () => {
 
 
-  const {googleSignIn,user,signIn}=useContext(AuthContext)
+  const {googleSignIn,signIn}=useContext(AuthContext)
+  // const [success,setsuccess]=useState(false)
+  // const [loginError,setLoginError]=useState('')
   const location=useLocation();
    const navigate=useNavigate()
-   
+
+
+   const handleGoogle = () => {
+    googleSignIn()
+      .then((result) => {
+        console.log(result.user);
+        // e.target.reset();
+        swal("Hurray!", "You Have Logged in Successfully", "success");
+      
+        const destination = location.state ? location.state : '/';
+  
+      console.log('my destiny:',destination);
+        navigate(destination);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
     const handleLogin=e=>{
       e.preventDefault();
   
@@ -24,35 +49,47 @@ const Login = () => {
       signIn(email,password)
       .then(result=>{
         console.log(result.user);
-        console.log(user);
        
+        
+        swal("Hurray!", "You Have Login Successfully", "success");
+        
         e.target.reset();
         navigate(location?.state?location.state:'/');
       })
       .catch(error=>{
-        console.log(error);
+        console.log(error.massage);
+        toast.error('Wrong email pass', {
+          position: toast.POSITION.RIGHT_TOP,
+          autoClose: 6000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored", 
+    
+        });
+        
       })
+
     }
 
-    const handleGoogle = () => {
-      googleSignIn()
-        .then((result) => {
-          console.log(result.user);
-          // e.target.reset();
-          
-        
-          const destination = location.state ? location.state : '/';
-    
-        console.log('my destiny:',destination);
-          navigate(destination);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
+   
    
     
-    
+  //   if(!success){
+  //     toast.error('Wrong Email And Password', {
+  //       position: toast.POSITION.RIGHT_TOP,
+  //       autoClose: 6000,
+  // hideProgressBar: false,
+  // closeOnClick: true,
+  // pauseOnHover: true,
+  // draggable: true,
+  // progress: undefined,
+  // theme: "colored", 
+  
+  //     });
+  //   }
     
     
     
@@ -114,7 +151,10 @@ const Login = () => {
         <BiLogoGmail className=' absolute w-6 h-6 left-20 -mt-1'></BiLogoGmail>
       Login with Email
     </button>
-    <p className='text-center mt-3'>____________OR___________</p>
+   
+   
+  </form>
+  <p className='text-center mt-3'>____________OR___________</p>
     <button
       className=" relative mt-6 block w-full select-none rounded-lg bg-purple-950  py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
       type="submit" value='Register'
@@ -122,13 +162,12 @@ const Login = () => {
     >
     <FcGoogle className=' absolute w-6 h-6 left-20 -mt-1'></FcGoogle>  Login with Google
     </button>
-   
-  </form>
       <p className="p-5">Do not have an account? Please <Link to='/register' className=" text-amber-500 font-bold">Register</Link></p>
   
 
     </div>
   </div>
+  <ToastContainer />
 </div>
     );
 };
