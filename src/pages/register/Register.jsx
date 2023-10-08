@@ -17,11 +17,11 @@ const Register = () => {
       const photo=form.get('file')
       const email=form.get('email')
       const password=form.get('password')
-      console.log('resigtater page info',password,email,name,photo);
+      console.log(password,email,name,photo);
      
-     createUser(name,photo,email,password)
+     createUser(email,password)
      .then(result=>{
-      console.log('resister user:',result.user);
+      console.log(result.user);
       e.target.reset();
       navigate('/');
      })

@@ -5,18 +5,19 @@ import { AuthContext } from "../../providers/AuthProvider";
 // import { GiPartyFlags} from 'react-icons/gi'
 // import { FaGoogle} from 'react-icons/fa'
 import icon from '../../assets/user.png'
-import icon2 from '../../assets/hero.jpg'
+
 
 
 
 const Navbar = () => {
   const {user,logOut}=useContext(AuthContext);
+  
   const handleSignOut=()=>{
 logOut()
 .then()
 .catch();
   }
-  
+
     const navLinks=<>
 <li className=" "><NavLink to="/" className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? " text-amber-400 font-bold  underline underline-offset-8  hover:text-white " : ""
@@ -58,28 +59,20 @@ logOut()
   </div>
   <div className="navbar-end">
   
-    {/* <label tabIndex={0} className="btn btn-circle avatar">
-        <div className="w-10 rounded-full">
-        <img src={icon}/>
-        </div>
-      </label>
-      {
-        user?<button onClick={handleSignOut} className="btn">Sign Out</button>
-        :   <Link to='/login' > <button className="btn text-white bg-amber-500 px-6  border-none ml-5 rounded-sm">Login</button></Link>
-      } */}
-
+   
 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
          {
-          !user?  <img src={icon}/>:<img src={icon2}></img>
+          !user?  <img src={icon}/>:<img src={user.photoURL}></img>
          }
         </div>
-       <p>
+      
+      </label>
+      <p className="">
           {
-            user?.email
+            user&& <p className="mx-4">{user.displayName}</p>
           }
         </p>
-      </label>
       {
         user?<button onClick={handleSignOut} className="btn ">Sign Out</button>
         :   <Link to='/login'> <button className="btn text-white bg-amber-500 px-6  border-none ml-5 rounded-sm">Login</button></Link>

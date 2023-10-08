@@ -9,9 +9,10 @@ import { AuthContext } from '../../providers/AuthProvider';
 const Login = () => {
 
 
-  const {signIn}=useContext(AuthContext)
+  const {googleSignIn,user,signIn}=useContext(AuthContext)
   const location=useLocation();
    const navigate=useNavigate()
+   
     const handleLogin=e=>{
       e.preventDefault();
   
@@ -23,6 +24,7 @@ const Login = () => {
       signIn(email,password)
       .then(result=>{
         console.log(result.user);
+        console.log(user);
        
         e.target.reset();
         navigate(location?.state?location.state:'/');
@@ -32,6 +34,39 @@ const Login = () => {
       })
     }
 
+    const handleGoogle = () => {
+      googleSignIn()
+        .then((result) => {
+          console.log(result.user);
+          // e.target.reset();
+          
+        
+          const destination = location.state ? location.state : '/';
+    
+        console.log('my destiny:',destination);
+          navigate(destination);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+   
+    
+    
+    
+    
+    
+    
+// 
+
+
+
+
+
+
+
+
+// 
     return (
       
         <div>
@@ -83,7 +118,7 @@ const Login = () => {
     <button
       className=" relative mt-6 block w-full select-none rounded-lg bg-purple-950  py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
       type="submit" value='Register'
-      data-ripple-light="true"
+      data-ripple-light="true" onClick={handleGoogle}
     >
     <FcGoogle className=' absolute w-6 h-6 left-20 -mt-1'></FcGoogle>  Login with Google
     </button>
