@@ -1,7 +1,7 @@
 
+##Project Name: Social Event##
 
 # Project Features #
-
 
   * Users can register on the website and log in via email or Google.
 

@@ -42,6 +42,7 @@ const Register = () => {
  
 
     if(!accepted){
+      
       toast.error('Please Accept Terms And Condition', {
         position: toast.POSITION.RIGHT_TOP,
         autoClose: 6000,
