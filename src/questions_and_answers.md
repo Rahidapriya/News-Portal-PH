@@ -21,6 +21,7 @@ console.log(greetign);
 #### Answer:A
 
 <i>Write your explanation here</i>
+
 Because there assigned an empty object to the variable greeting and then logged its value using console.log().
 </p>
 </details>
@@ -46,7 +47,8 @@ sum(1, "2");
 #### Answer: C
 
 <i>Write your explanation here</i>
-In this case, there trying to add a number (1) and a string ("2"). JavaScript converts the number to a string, and then it concatenates the two strings, resulting in "12".
+
+In this case, you are trying to add a number (1) and a string ("2"). JavaScript converts the number to a string, and then it concatenates the two strings, resulting in "12".
 
 </p>
 </details>
@@ -73,8 +75,8 @@ console.log(food);
 #### Answer: B
 
 <i>Write your explanation here</i>
-You create an array food containing four emoji elements
-and an object info with a property favoriteFood that initially references the first element of the food array, which is "🍕".You then reassign the favoriteFood property of the info object to "🍝".
+
+You create an array food containing four emoji elements and an object info with a property favoriteFood that initially references the first element of the food array, which is "🍕".You then reassign the favoriteFood property of the info object to "🍝".
 Finally, when you log the food array to the console, it remains unchanged except for the reassignment of the info.favoriteFood property. So, only the info object is modified, and food still contains ['🍕', '🍫', '🥑', '🍔'].
 
 </p>
@@ -101,6 +103,7 @@ console.log(sayHi());
 #### Answer: B
 
 <i>Write your explanation here</i>
+
 In this code the sayHi function expects an argument name, but when you call sayHi() without passing any arguments, name is undefined. Therefore, the template string "Hi there, " is concatenated with the value of name, which is undefined. The result is "Hi there, undefined", which is what will be logged to the console.
 
 </p>
@@ -130,6 +133,7 @@ console.log(count);
 #### Answer: C
 
 <i>Write your explanation here</i>
+
 In this code, you have an array nums containing four numbers. You use the forEach method to iterate through each element of the array. Inside the callback function, you check if num is truthy (i.e., not equal to 0). For the numbers 1, 2, and 3 in the array, the condition is true, and count is incremented by 1 each time. Therefore, count ends up being 3, and that's what will be logged to the console.
 
 </p>

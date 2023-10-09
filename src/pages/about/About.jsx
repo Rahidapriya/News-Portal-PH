@@ -21,7 +21,7 @@ const About = () => {
       <h1 className=" text-3xl  md:text-5xl lg:text-5xl font-bold text-amber-500 md:text-center lg:text-left ">Crafting Unforgettable Experiences</h1>
       <p className="py-6">
 
-At 'Event' Lab, we are more than just event planners; we are the architects of unforgettable experiences. With a passion for creativity and a commitment to excellence, our team is dedicated to turning your dreams into reality.</p>
+At <mark> Event Lab</mark>, we are more than just event planners; we are the architects of unforgettable experiences. With a passion for creativity and a commitment to excellence, our team is dedicated to turning your dreams into reality.</p>
 
 
 
