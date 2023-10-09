@@ -1,7 +1,7 @@
 
-##Project Name: Social Event##
+# Project Name: Social Events #
 
-# Project Features #
+## Project Features ##
 
   * Users can register on the website and log in via email or Google.
 
@@ -14,4 +14,4 @@
   * Users are required to use passwords that contain at least one uppercase letter, one special character, and have a minimum length of 6 characters.
 
   
-- [Live Link:](https://social-event-a8.web.app/) 
+ - Click Here : [Live Link:](https://social-event-a8.web.app/) 
