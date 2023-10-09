@@ -11,7 +11,7 @@ const Home = () => {
     console.log(cards);
     return (
         <div>
-         <div className='max-h-screen'> 
+         <div className=''> 
          <Navbar></Navbar>
           <Header></Header>
           <Scroll></Scroll>

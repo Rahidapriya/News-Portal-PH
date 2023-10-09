@@ -15,19 +15,19 @@ const ServicesCard = ({card}) => {
         // };
     }
     return (
-        <div className='w-10/12 mx-auto'>
+        <div className='lg:w-10/12 mx-auto w-full'>
             
             <ReactCardFlip flipDirection='vertical' isFlipped={isFlipped}>
                 {/* <Navbar></Navbar> */}
-                <div className='flex w-96  flex-col rounded-xl  bg-clip-border text-gray-700 shadow-md' style={{ background: backgroundColor }} onClick={flipCard} >
-  <div className="  h-56 overflow-hidden rounded-t-xl bg-blue-gray-500 bg-clip-border text-white ">
+                <div className='flex lg:w-96   w-72 gap-5 flex-col rounded-xl  bg-clip-border text-gray-700 shadow-md' style={{ background: backgroundColor }} onClick={flipCard} >
+  <div className="  lg:h-56 h-44 overflow-hidden rounded-t-xl bg-blue-gray-500 bg-clip-border text-white ">
     <img className='w-full '
       src={imageURL}
       alt="img-blur-shadow"
       layout="fill"
     />
   </div>
-  <div className="p-6 text-white">
+  <div className="p-6 text-white text-center">
     <h5 className="font-metamorphous mb-2 block  text-xl font-semibold leading-snug tracking-normal antialiased" >
      {serviceType}
     </h5>
@@ -39,7 +39,7 @@ const ServicesCard = ({card}) => {
  
 </div>
 <div>
-<div className="p-6 pt-0 relative flex w-96 h-96 flex-col rounded-xl  bg-clip-border text-gray-700 shadow-md" style={{ background: buttonColor }} onClick={flipCard}>
+<div className="p-6 pt-0 relative flex lg:w-96   w-72 flex-col rounded-xl  bg-clip-border text-gray-700 shadow-md" style={{ background: buttonColor }} onClick={flipCard}>
      <p className=" text-center font-bold text-xl block text-white font-poppins leading-relaxed  antialiased mt-20">
       Are You excited to celebrate your memorable day more memorable with us <span className='block text-6xl text-center'>?</span>
     </p>

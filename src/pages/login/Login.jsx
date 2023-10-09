@@ -76,40 +76,13 @@ const Login = () => {
 
    
    
-    
-  //   if(!success){
-  //     toast.error('Wrong Email And Password', {
-  //       position: toast.POSITION.RIGHT_TOP,
-  //       autoClose: 6000,
-  // hideProgressBar: false,
-  // closeOnClick: true,
-  // pauseOnHover: true,
-  // draggable: true,
-  // progress: undefined,
-  // theme: "colored", 
-  
-  //     });
-  //   }
-    
-    
-    
-    
-// 
-
-
-
-
-
-
-
-
-// 
+   
     return (
       
         <div>
               <Navbar></Navbar>
- <div className="mx-auto w-3/12 mt-20">
-            <div className="relative flex flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
+ <div className=" mt-20 mx-3 px-3">
+            <div className="relative flex flex-col justify-center items-center rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
   <h4 className="block font-sans text-5xl  leading-snug tracking-normal text-amber-500 text-center antialiased font-bold">
    Log<span className='text-purple-950'>In</span>
   </h4>
@@ -118,7 +91,7 @@ const Login = () => {
   </p>
      
 
-<form className="mt-8 mb-2 w-full max-w-screen-lg sm:w-96 px-6 py-10 shadow-md rounded-md" onSubmit={handleLogin}>
+<form className="mt-8 mb-2 w-full max-w-screen-lg sm:w-96 px-3 py-10 shadow-md rounded-md" onSubmit={handleLogin}>
     <div className="mb-4 flex flex-col gap-6">
      
      
@@ -148,7 +121,7 @@ const Login = () => {
       type="submit" value='Register'
       data-ripple-light="true"
     >
-        <BiLogoGmail className=' absolute w-6 h-6 left-20 -mt-1'></BiLogoGmail>
+        <BiLogoGmail className=' absolute w-6 h-6  left-20 -mt-1'></BiLogoGmail>
       Login with Email
     </button>
    
@@ -156,13 +129,13 @@ const Login = () => {
   </form>
   <p className='text-center mt-3'>____________OR___________</p>
     <button
-      className=" relative mt-6 block w-full select-none rounded-lg bg-purple-950  py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+      className=" relative mt-6 block md:w-96 w-full mx-3 select-none rounded-lg bg-purple-950  py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
       type="submit" value='Register'
       data-ripple-light="true" onClick={handleGoogle}
     >
     <FcGoogle className=' absolute w-6 h-6 left-20 -mt-1'></FcGoogle>  Login with Google
     </button>
-      <p className="p-5">Do not have an account? Please <Link to='/register' className=" text-amber-500 font-bold">Register</Link></p>
+      <p className="p-2 text-sm md:p-5">Do not have an account? Please <Link to='/register' className=" text-amber-500 font-bold">Register</Link></p>
   
 
     </div>

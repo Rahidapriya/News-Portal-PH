@@ -29,7 +29,7 @@ import PrivateRoute from "./PrivateRoute";
         {
           path:'/',
           element:<Home></Home>,
-          loader:()=>fetch('/public/data.json')
+          loader:()=>fetch('/data.json')
         },
         {
           path:'/about',
@@ -38,7 +38,7 @@ import PrivateRoute from "./PrivateRoute";
         {
           path:"/donate/:id",
           element:<PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
-           loader:()=>fetch('/public/data.json')
+           loader:()=>fetch('/data.json')
         },
         {
           path:'/features',

@@ -13,7 +13,7 @@ const Contact = () => {
 
             <div className='flex flex-col items-center justify-center mt-20 ' id='services'>
              <h3 className='text-amber-500'> Fix a Meeting with Us</h3>
-             <h1 className='text-purple-950 text-4xl font-metamorphous font-bold'>__Book A Consult__</h1>
+             <h1 className='text-purple-950 text-2xl md:text-4xl font-metamorphous font-bold text-center'>__Book A Consult__</h1>
             </div>       
 <div className="flex items-center justify-center p-12">
 

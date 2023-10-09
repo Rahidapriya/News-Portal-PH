@@ -94,8 +94,8 @@ theme: "colored",
     return (
         <div>
           <Navbar></Navbar>
-          <div className="mx-auto w-3/12 mt-20">
-            <div className="relative flex flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
+          <div className="mx-auto w-full lg:w-3/12 mt-20">
+            <div className="relative flex flex-wrap justify-center items-center flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
   <h4 className=" text-center text-5xl font-bold block font-sans text-purple-950 leading-snug tracking-normal text-blue-gray-900 antialiased">
     Sign <span className="text-amber-500">Up</span> 
   </h4>

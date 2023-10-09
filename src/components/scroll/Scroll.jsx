@@ -13,6 +13,8 @@ const Scroll = () => {
 
 
 </Marquee>
+
+
         </div>
     );
 };

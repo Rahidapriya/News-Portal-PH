@@ -13,6 +13,8 @@ import photography from '../../assets/photography.jpg'
 import decoration from '../../assets/decoration.jpg'
 import cake from '../../assets/cake.jpg'
 import Footer from '../../shared/footer/Footer';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Features = () => {
     return (
@@ -25,8 +27,8 @@ const Features = () => {
             </div>
            </div>
 
-          <div className='m-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  mx-auto w-9/12 gap-2 '>
-          <div className="card  w-80 bg-base-100 shadow-xl image-full mx-auto">
+          <div className='m-10 w-10/12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  mx-auto   lg:w-9/12 gap-2 '>
+          <div className="card  lg:w-80 bg-base-100 shadow-xl image-full mx-auto">
   <figure><img src={guest} className='' alt="Shoes" /></figure>
   <div className="card-body text-center flex flex-col items-center justify-center ">
     <RiFileList3Line className='w-12 h-12 mx-auto mb-3'></RiFileList3Line>
@@ -36,7 +38,7 @@ const Features = () => {
   </div>
 </div>
 
-<div className=" card w-96 mx-auto bg-base-100 shadow-xl image-full  ">
+<div className=" card lg:w-96  mx-auto bg-base-100 shadow-xl image-full  ">
   <figure><img src={dining} alt="Shoes" /></figure>
   <div className="card-body text-center flex flex-col items-center justify-center">
     <MdBrunchDining className='w-12 h-12 mx-auto mb-3'></MdBrunchDining>
@@ -46,7 +48,7 @@ const Features = () => {
   </div>
 </div>
 
-<div className="card   w-80 bg-base-100 shadow-xl image-full mx-auto">
+<div className="card   lg:w-80 bg-base-100 shadow-xl image-full mx-auto">
   <figure><img src={decoration} alt="Shoes" /></figure>
   <div className="card-body text-center flex flex-col items-center justify-center">
     <MdEco className='w-12 h-12 mx-auto mb-3'></MdEco>
@@ -56,7 +58,7 @@ const Features = () => {
   </div>
 </div>
 
-<div className="card   w-96 bg-base-100 shadow-xl image-full mx-auto">
+<div className="card   lg:w-96 bg-base-100 shadow-xl image-full mx-auto">
   <figure><img src={cake} alt="Shoes" /></figure>
   <div className="card-body text-center flex flex-col items-center justify-center">
     <GiStairsCake className='w-12 h-12 mx-auto mb-3'></GiStairsCake>
@@ -66,7 +68,7 @@ const Features = () => {
   </div>
 </div>
 
-<div className="card   w-80 bg-base-100 shadow-xl image-full  mx-auto">
+<div className="card  lg:w-80 bg-base-100 shadow-xl image-full  mx-auto">
   <figure><img src={registry} alt="Shoes" /></figure>
   <div className="card-body text-center flex flex-col items-center justify-center">
     <SlNote className='w-12 h-12 mx-auto mb-3'></SlNote>
@@ -76,7 +78,7 @@ const Features = () => {
   </div>
 </div>
 
-<div className="card   w-96 bg-base-100 shadow-xl image-full mx-auto">
+<div className="card  lg:w-96 bg-base-100 shadow-xl image-full mx-auto">
   <figure><img src={photography} alt="Shoes" /></figure>
   <div className="card-body text-center flex flex-col items-center justify-center ">
     <MdMonochromePhotos className='w-12 h-12 mx-auto mb-3'></MdMonochromePhotos>

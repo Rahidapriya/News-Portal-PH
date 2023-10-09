@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <div>
       <div
-        className="hero min-h-[91vh] relative"
+        className="hero min-h-[91vh]  relative"
         style={{
           backgroundImage: 'url(https://i.ibb.co/yyQHQ9B/header.jpg)',
           backgroundPosition: 'center', // Set background position to center
@@ -16,15 +16,15 @@ const Header = () => {
       >
         <div className="hero-overlay bg-opacity-70"></div>
         <div className="hero-content text-center text-neutral-content">
-          <div className="max-w-md">
-            <h1 className="mb-5 text-4xl font-bold font-metamorphous">Crafting Memorable Events</h1>
-            <p className="mb-5">
+          <div className="">
+            <h1 className="mb-5 text-2xl md:text-3xl lg:text-4xl font-bold font-metamorphous">Crafting Memorable <br /> Events</h1>
+            <p className="mb-5 text-xxl md:text-xl md:w-8/12 lg:w-5/12 mx-auto">
             Unforgettable weddings, birthdays,
 and more await your vision's embrace.
 Let's craft an extraordinary event,
 capturing moments you'll forever embrace.
             </p>
-           <Link to='/contact'> <button className="btn px-8 cursor-pointer z-20 bg-orange-500 hover:bg-purple-950  rounded-none text-white font-bold border-none font-metamorphous">Book A Consult</button></Link>
+           <Link to='/contact'> <button className="btn lg:px-8 cursor-pointer z-20 bg-orange-500 hover:bg-purple-950  rounded-none text-white font-bold border-none font-metamorphous">Book A Consult</button></Link>
           </div>
         </div>
        
