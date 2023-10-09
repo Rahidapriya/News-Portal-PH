@@ -19,9 +19,9 @@ const PriceCard = () => {
              <h3 className='text-amber-500'> Have a Look to Our Pricing</h3>
              <h1 className='text-purple-950 text-4xl font-metamorphous font-bold'>__Prices__</h1>
             </div>
-        <div className='w-9/12 mx-auto mt-10 mb-10'>
-            <div className='grid grid-cols-1 lg:grid-cols-3'>
-            <div className="relative flex w-full max-w-[20rem] flex-col rounded-xl bg-gradient-to-tr from-purple-950 to-purple-600 bg-clip-border p-8 text-white shadow-md shadow-pink-500/40"data-aos="flip-left">
+        <div className=' w-full mx-auto mt-10 mb-10 flex flex-col  justify-between items-center '>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5' >
+            <div className="relative  flex w-full max-w-[20rem] flex-col rounded-xl bg-gradient-to-tr from-purple-950 to-purple-600 bg-clip-border p-8 text-white shadow-md shadow-pink-500/40"data-aos="flip-left">
   <div className="relative m-0 mb-8 overflow-hidden rounded-none border-b border-white/10 bg-transparent bg-clip-border pb-8 text-center text-gray-700 shadow-none">
     <p className="block font-sans text-sm font-normal uppercase leading-normal text-white antialiased">
      Basic
