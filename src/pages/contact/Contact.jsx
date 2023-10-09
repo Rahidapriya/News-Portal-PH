@@ -3,8 +3,18 @@
 import { Link } from 'react-router-dom';
 import Navbar from '../../shared/navbar/Navbar';
 import Footer from '../../shared/footer/Footer';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
+
+  
+
+  
 const Contact = () => {
+  useEffect(()=>{
+    AOS.init({duration:'1000'})
+  })
     return (
         <div>
             <Navbar></Navbar>
@@ -19,7 +29,7 @@ const Contact = () => {
 
 
  
-  <div className="mx-auto w-full max-w-[550px] shadow-lg p-6 rounded-md">
+  <div className="mx-auto w-full max-w-[550px] shadow-lg p-6 rounded-md" data-aos="fade-up">
     <form action="" method="POST">
       <div className="-mx-3 flex flex-wrap">
         <div className="w-full px-3 sm:w-1/2">

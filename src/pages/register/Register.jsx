@@ -10,8 +10,19 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import swal from 'sweetalert';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
+
+   
+ 
+
+ 
 
 const Register = () => {
+  useEffect(()=>{
+    AOS.init({duration:'1000'})
+  })
   const navigate=useNavigate();
   // const [registerError,setRegisterError]=useState('')
   // const [success,setsuccess]=useState(false)
@@ -47,7 +58,7 @@ const Register = () => {
 
   if(!/^(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}$/.test(password)){
     // alert("please write a valid password")
-    toast.error('Please Write a Valid Password', {
+    toast.warning('Please Entered a Valid Password', {
       position: toast.POSITION.RIGHT_TOP,
       autoClose: 6000,
 hideProgressBar: false,
@@ -94,7 +105,7 @@ theme: "colored",
     return (
         <div>
           <Navbar></Navbar>
-          <div className="mx-auto w-full lg:w-3/12 mt-20">
+          <div className="mx-auto w-full lg:w-3/12 mt-20" data-aos="fade-right">
             <div className="relative flex flex-wrap justify-center items-center flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
   <h4 className=" text-center text-5xl font-bold block font-sans text-purple-950 leading-snug tracking-normal text-blue-gray-900 antialiased">
     Sign <span className="text-amber-500">Up</span> 

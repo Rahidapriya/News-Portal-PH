@@ -5,10 +5,19 @@ import SingleCard from './singleCard';
 import Navbar from '../../shared/navbar/Navbar';
 
 
+
+
+
+  
+  
+
+   
+
 const ServiceDetails = () => {
     const[card,setCard]=useState({});
     const {id}=useParams();
     const cards=useLoaderData();
+    
    
     useEffect(()=>{
         const findCard=cards?.find(card=>card.id==id);

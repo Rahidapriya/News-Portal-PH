@@ -1,9 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
 
 import { Link } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 
 const Header = () => {
+  
+  useEffect(()=>{
+      AOS.init({duration:'1000'})
+    })
   return (
     <div>
       <div
@@ -16,7 +23,7 @@ const Header = () => {
       >
         <div className="hero-overlay bg-opacity-70"></div>
         <div className="hero-content text-center text-neutral-content">
-          <div className="">
+          <div className="" data-aos="fade-up">
             <h1 className="mb-5 text-2xl md:text-3xl lg:text-4xl font-bold font-metamorphous">Crafting Memorable <br /> Events</h1>
             <p className="mb-5 text-xxl md:text-xl md:w-8/12 lg:w-5/12 mx-auto">
             Unforgettable weddings, birthdays,

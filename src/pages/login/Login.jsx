@@ -10,9 +10,17 @@ import swal from 'sweetalert';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
+   
+ 
 const Login = () => {
 
+  useEffect(()=>{
+    AOS.init({duration:'1000'})
+  })
 
   const {googleSignIn,signIn}=useContext(AuthContext)
   // const [success,setsuccess]=useState(false)
@@ -58,7 +66,7 @@ const Login = () => {
       })
       .catch(error=>{
         console.log(error.massage);
-        toast.error('Wrong email pass', {
+        toast.error('You have Entered Wrong Email and Password', {
           position: toast.POSITION.RIGHT_TOP,
           autoClose: 6000,
     hideProgressBar: false,
@@ -81,7 +89,7 @@ const Login = () => {
       
         <div>
               <Navbar></Navbar>
- <div className=" mt-20 mx-3 px-3">
+ <div className=" mt-20 mx-3 px-3"  data-aos="fade-up">
             <div className="relative flex flex-col justify-center items-center rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
   <h4 className="block font-sans text-5xl  leading-snug tracking-normal text-amber-500 text-center antialiased font-bold">
    Log<span className='text-purple-950'>In</span>

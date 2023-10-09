@@ -1,9 +1,19 @@
+/* eslint-disable react/no-unescaped-entities */
 
 import Navbar from '../../shared/navbar/Navbar';
 import hero from '../../assets/hero.jpg'
 import Footer from '../../shared/footer/Footer';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
+
+
+  
 
 const About = () => {
+  useEffect(()=>{
+    AOS.init({duration:'1000'})
+  })
     return (
         <div>
            <Navbar></Navbar> 
@@ -16,12 +26,12 @@ const About = () => {
 
            <div className="hero min-h-screen bg-base-100">
   <div className="hero-content flex-col lg:flex-row-reverse">
-    <img src={hero} className="max-w-sm rounded-lg shadow-2xl" />
-    <div>
+    <img src={hero} className=" rounded-lg shadow-2xl" data-aos="fade-up" />
+    <div data-aos="fade-right">
       <h1 className=" text-3xl  md:text-5xl lg:text-5xl font-bold text-amber-500 md:text-center lg:text-left ">Crafting Unforgettable Experiences</h1>
-      <p className="py-6">
+      <p className="py-6" >
 
-At <mark> Event Lab</mark>, we are more than just event planners; we are the architects of unforgettable experiences. With a passion for creativity and a commitment to excellence, our team is dedicated to turning your dreams into reality.</p>
+At <span className='text-amber-500'> Event Lab</span>, we are more than just event planners; we are the architects of unforgettable experiences. With a passion for creativity and a commitment to excellence, our team is dedicated to turning your dreams into reality.</p>
 
 
 

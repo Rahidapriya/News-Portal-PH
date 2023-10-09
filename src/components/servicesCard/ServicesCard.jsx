@@ -4,9 +4,19 @@
 import { useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
+
+
+  
+  
 const ServicesCard = ({card}) => {
     const{id,serviceType,imageURL,backgroundColor,buttonColor,description ,priceRange}=card;
+    useEffect(()=>{
+      AOS.init({duration:'1000'})
+    })
     const [isFlipped,setIsFlipped]=useState(false);
     const flipCard=()=>{
         setIsFlipped(!isFlipped)
@@ -15,7 +25,7 @@ const ServicesCard = ({card}) => {
         // };
     }
     return (
-        <div className='lg:w-10/12 mx-auto w-full'>
+        <div className='lg:w-10/12 mx-auto w-full' data-aos="fade-up">
             
             <ReactCardFlip flipDirection='vertical' isFlipped={isFlipped}>
                 {/* <Navbar></Navbar> */}
