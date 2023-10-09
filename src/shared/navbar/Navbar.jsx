@@ -28,9 +28,7 @@ logOut()
 <li><NavLink to="/features" className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-amber-400 font-bold  underline underline-offset-8 hover:text-white " : ""
               }>Features</NavLink></li>
-{/* <li><NavLink to="#services" className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-amber-500 font-bold  underline" : ""
-              }>Services</NavLink></li> */}
+
 <li><NavLink to="/contact" className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-amber-400 font-bold  underline underline-offset-8 hover:text-white  " : ""
               }>Contact</NavLink></li>
@@ -50,7 +48,7 @@ logOut()
         </ul>
     </div>
     
-    <a className="btn btn-ghost normal-case text-xl lg:text-2xl text-amber-500"> <span className="text-2xl md:text-3xl lg:text-4xl">E</span>vent Lab</a>
+    <a className="btn btn-ghost normal-case text-xl lg:text-2xl text-amber-500">Event <span className="text-amber-300">Flow</span></a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal  px-1">
@@ -74,8 +72,8 @@ logOut()
           }
         </div>
       {
-        user?<button onClick={handleSignOut} className="btn btn-sm md:btn-md ">Sign Out</button>
-        :   <Link to='/login'> <button className="btn text-white bg-amber-500 px-6  border-none ml-5 rounded-sm">Login</button></Link>
+        user?<button onClick={handleSignOut} className="btn btn-sm md:btn-md ">Log Out</button>
+        :   <Link to='/login'> <button className="btn text-white bg-amber-500 px-6  border-none lg:ml-5 rounded-sm">Login</button></Link>
       }
    
   

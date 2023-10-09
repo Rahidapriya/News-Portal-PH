@@ -26,14 +26,16 @@ const Home = () => {
           {/* services */}
        
         <div className='flex flex-col items-center justify-center mt-20 ' id='services' data-aos="fade-up">
-             <h3 className='text-amber-500'>Turning Dreams Into Reality</h3>
-             <h1 className='text-purple-950 text-4xl font-metamorphous font-bold'>__Our Services__</h1>
+             <h3 className='text-amber-500 text-center'>Turning Dreams Into Reality</h3>
+             <h1 className='text-purple-950 text-2xl md:text-4xl font-metamorphous font-bold text-center'>__Our Services__</h1>
             </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 m-20 gap-6">
+          <div className='flex flex-col items-center w-full'>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-10 lg:my-20 gap-6">
                                 {
                                     cards.map(card=><ServicesCard key={card.id} card={card}></ServicesCard>)
                                 }
                 </div>
+          </div>
                 <Footer></Footer>
       
          </div>
