@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+import banner from '../../assets/decoration.jpg'
 
 
 const Header = () => {
@@ -16,7 +17,7 @@ const Header = () => {
       <div
         className="hero min-h-[91vh]  relative"
         style={{
-          backgroundImage: 'url(https://i.ibb.co/yyQHQ9B/header.jpg)',
+          backgroundImage: 'url(banner)',
           backgroundPosition: 'center', // Set background position to center
           backgroundSize: 'cover', // Maintain aspect ratio and cover the entire container
         }}
